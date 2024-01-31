@@ -1,82 +1,46 @@
 const botaoPlayPause = document.getElementById('play-pause');
-const botaoAvancar = document.getElementById('proximo');
 const botaoVoltar = document.getElementById('anterior');
-const titulo = document.getElementById('capitulo');
+const botaoProximo = document.getElementById('proximo');
 
-const audio = document.getElementById('audio-capitulo');
+const audio = document.getElementById('audio');
 
 let tocando = false;
+const numeroCapitulos = 10;
 let capituloAtual = 1;
-const numeroCapitulo = 10;
 
-function play() {
+function play(){
 
     audio.play();
-    botaoPlayPause.classList.remove('bi-play-circle');
-    botaoPlayPause.classList.add('bi-pause-circle')
+    botaoPlayPause.classList.remove('bi-play-circle-fill');
+    botaoPlayPause.classList.add('bi-pause-circle-fill');
     tocando = true;
+
 }
 
-function pause() {
+function pause(){
     audio.pause();
-    botaoPlayPause.classList.remove('bi-pause-circle');
-    botaoPlayPause.classList.add('bi-play-circle')
+    botaoPlayPause.classList.remove('bi-pause-circle-fill');
+    botaoPlayPause.classList.add('bi-play-circle-fill')
     tocando = false;
-
 }
 
-function playOrPause() {
+function playEPause(){
 
-    if (tocando == false) {
+    if(tocando === false){
+
         play();
-        tocando = true;
-    } else {
-        pause();
-        tocando = false;
-    }
-}
-
-function proximaFaixa() {
-
-    if (capituloAtual === numeroCapitulo) {
-        capituloAtual = 1;
-
-    } else {
-        capituloAtual = capituloAtual + 1;
-    }
-
-    audio.src = "/Site/books/dom-casmurro/" + capituloAtual + ".mp3";
-    play();
-    mudarTitulo();
-   
-}
-
-function voltarFaixa(){
-
-    if(capituloAtual === 1){
-
-        capituloAtual = numeroCapitulo;
+        // tocando = true;
 
     }else{
-        capituloAtual--;
+        pause();
+       // tocando = false;
     }
 
-    audio.src = "/Site/books/dom-casmurro/" + capituloAtual + ".mp3";
-    play();
-    mudarTitulo();
-   
+}
+
+function proximo(){
 
 }
 
-function mudarTitulo(){
 
-    titulo.innerText = "Capítulo " + capituloAtual;
-}
-
-
-
-
-
-botaoPlayPause.addEventListener('click', playOrPause);
-botaoAvancar.addEventListener('click', proximaFaixa);
-botaoVoltar.addEventListener('click', voltarFaixa);
+botaoPlayPause.addEventListener('click', playEPause);

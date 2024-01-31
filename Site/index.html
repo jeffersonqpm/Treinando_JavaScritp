@@ -4,70 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Site/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Audio Book</title>
+    <title>AudioBook - Jefferson Queiroz</title>
 </head>
 
 <body>
+
     <div class="container-aplicativo">
-        <img src="/Site/images/dom-casmurro.jpeg" alt="" class="imagem1">
+        <img src="images/dom-casmurro.jpeg" alt="Capa do livro" title="Livro Dom Casmurro">
         <div id="informacoes-faixa">
-            <p id="capitulo">Capítulo 1</p>
+            <p class="capitulo">Capítulo 1</p>
             <p>Machado de Assis</p>
         </div>
-        <audio id="audio-capitulo" src="/Site/books/dom-casmurro/1.mp3"></audio>
+
+        <audio id="audio" src="books/dom-casmurro/1.mp3"></audio>
+
         <div id="container-botoes">
 
-            <button id="anterior" class="bi bi-skip-backward-circle-fill"></button>
-
-            <button id="play-pause" class="bi bi-play-circle"></button>
-
-            <!-- <button id="play-pause" class="bi bi-pause-circle-fill"></button> -->
-            <button id="proximo" class="bi bi-skip-forward-circle-fill"></button>
+            <button id="anterior" class="bi bi-skip-backward-fill"></button>
+            <button id="play-pause" class="bi bi-play-circle-fill"></button>
+            <button id="proximo" class="bi bi-skip-forward-fill"></button>
 
         </div>
     </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>
-
-<!-- const botaoPlayPause = document.getElementById('play-pause');
-
-audioCapitulo = document.getElementById('audio-capitulo');
-
-let tocando = 0;
-
-
-function tocarFaixa(){
-
-    audioCapitulo.play();
-    botaoPlayPause.classList.remove('bi-play-circle-fill');
-    botaoPlayPause.classList.add('bi-pause-circle-fill');
-
-
-}
-
-function pausarFaixa(){
-
-    audioCapitulo.pause();
-    botaoPlayPause.classList.remove('bi-pause-circle-fill');
-    botaoPlayPause.classList.add('bi-play-circle-fill');
-}
-
-function playPause(){
-
-    if(tocando === 0){
-        tocarFaixa();
-        tocando =1;
-
-    }else{
-        pausarFaixa();
-        tocando = 0;
-    }
-}
-
-botaoPlayPause.addEventListener('click', playPause);
-// botaoPlayPause.addEventListener('click', pausarFaixa); -->
