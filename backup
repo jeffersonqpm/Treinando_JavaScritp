@@ -1,0 +1,84 @@
+const botaoPlayPause = document.getElementById('play-pause');
+const botaoProximo = document.getElementById('proximo');
+const botaoVoltar = document.getElementById('anterior');
+const capitulo = document.getElementById('capitulo');
+
+
+const audio = document.getElementById('audio-capitulo');
+
+let tocando = false;
+const numeroCapitulo = 10;
+let capituloAtual = 1;
+
+function play(){
+
+    audio.play();
+    tocando = true;
+    botaoPlayPause.classList.remove('bi-play-circle');
+    botaoPlayPause.classList.add('bi-pause-circle')
+}
+
+function pause(){
+
+    audio.pause();
+    tocando = false;
+    botaoPlayPause.classList.add('bi-play-circle');
+    botaoPlayPause.classList.remove('bi-pause-circle')
+}
+
+function playOrPause(){
+
+    if(tocando === false){
+
+        play();
+        tocando = true;
+
+    }else{
+        pause();
+        tocando = false;
+    }
+
+}
+
+function proximaFaixa(){
+
+   if(capituloAtual === numeroCapitulo){
+    capituloAtual = 1;
+
+   }else{
+    capituloAtual++;
+   }
+
+   audio.src = "/Site/books/dom-casmurro/"+capituloAtual+".mp3";
+   play();
+   tocando = true;
+   mudarTitulo();
+}
+function voltarFaixa(){
+
+    if(capituloAtual === 1){
+        capituloAtual = numeroCapitulo;
+
+    }else{
+        capituloAtual = capituloAtual - 1;
+    }
+
+    audio.src = "/Site/books/dom-casmurro/"+capituloAtual+".mp3";
+   play();
+   tocando = true;
+   mudarTitulo();
+ }
+
+function mudarTitulo(){
+
+    capitulo.innerText = "Capítulo " + capituloAtual;
+    mudarTitulo();
+
+}
+
+
+
+
+botaoPlayPause.addEventListener('click', playOrPause);
+botaoProximo.addEventListener('click', proximaFaixa);
+botaoVoltar.addEventListener('click', voltarFaixa);
