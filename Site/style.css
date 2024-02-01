@@ -20,6 +20,13 @@ body {
     border: none;
     cursor: pointer;
   }
+
+  button:active {
+    background-color: inherit;
+    color: rgb(83, 83, 83);
+    border: none;
+    cursor: pointer;
+  }
   
   .music-container {
     display: flex;
