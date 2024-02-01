@@ -23,8 +23,7 @@ body {
 
   button:active {
     background-color: inherit;
-    color: rgb(53, 11, 240);
-    /* color: rgb(83, 83, 83); */
+    color: rgb(110, 110, 110);
     border: none;
     cursor: pointer;
   }
